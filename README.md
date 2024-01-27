@@ -42,7 +42,7 @@ downloadService.submitTask(
         (page2, pageSize2) -> userService.getList(page2, pageSize2), // 该lambda表达式，实现了PageDataFetcher接口
         100,
         null,
-        UserExcelHeader.class,
+        UserExcelHeader.class, // 该类中定义了excel中包含哪些列、以及列的顺序等。 当然，easyExcel也支持直接在entity上定义这些属性。 把这些定义单独抽离出一个类，能够灵活应对一张表要导出多种excel的场景。如user表，在页面A中要下载3列，在页面B中要下载4列。
         "用户列表",
         response
 );
@@ -52,4 +52,3 @@ downloadService.submitTask(
 - 单线程模式。PageDataFetcher.get() 返回的数据格式可以是Collection（业务不需要获取总行数，只需要返回entity List就可以）、或者PaginationWrapper（需要获取总行数）
 
 - 多线程模式。PageDataFetcher.get() 必须返回PaginationWrapper类型，告知DownloadService总共有多少行数据。然后下载服务会创建n个并行的单页下载任务，然后投递给线程池。
-
