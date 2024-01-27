@@ -1,0 +1,3 @@
+concurrencyPagingExcel:
+  initialThreadNum: 2
+  maxThreadNum: 10
