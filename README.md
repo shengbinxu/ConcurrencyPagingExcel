@@ -39,7 +39,7 @@ public interface UserService {
 ```
 downloadService.submitTask(
         DownloadService.RunModel.MULTI_THREAD,
-        (page2, pageSize2) -> userService.getList(page2, pageSize2),
+        (page2, pageSize2) -> userService.getList(page2, pageSize2), // 该lambda表达式，实现了PageDataFetcher接口
         100,
         null,
         UserExcelHeader.class,
