@@ -52,3 +52,22 @@ downloadService.submitTask(
 - 单线程模式。PageDataFetcher.get() 返回的数据格式可以是Collection（业务不需要获取总行数，只需要返回entity List就可以）、或者PaginationWrapper（需要获取总行数）
 
 - 多线程模式。PageDataFetcher.get() 必须返回PaginationWrapper类型，告知DownloadService总共有多少行数据。然后下载服务会创建n个并行的单页下载任务，然后投递给线程池。
+
+对PageDataFetcher.get()返回值的要求，可参考：
+```
+/**
+ * 一页返回的数据行数
+ *
+ * @param pageData
+ * @return
+ * @throws Exception
+ */
+private static Collection getPageRows(Object pageData) throws Exception {
+    if (pageData instanceof PaginationWrapper) {
+        return ((PaginationWrapper<?>) pageData).getData();
+    } else if (pageData instanceof Collection) {
+        return (Collection) pageData;
+    }
+    throw new Exception("不支持的返回值类型");
+}
+```
