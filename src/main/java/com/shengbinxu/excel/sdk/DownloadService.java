@@ -1,9 +1,9 @@
-package com.shengbinxu.excel.sdk.service;
+package com.shengbinxu.excel.sdk;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
-import com.shengbinxu.excel.sdk.service.entity.PaginationWrapper;
+import com.shengbinxu.excel.sdk.entity.PaginationWrapper;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -89,7 +89,7 @@ public class DownloadService {
     }
 
     /**
-     * 一页返回的数据行数
+     * 返回的一页数据list
      *
      * @param pageData
      * @return

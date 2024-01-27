@@ -1,4 +1,4 @@
-package com.shengbinxu.excel.sdk.service.entity;
+package com.shengbinxu.excel.sdk.entity;
 
 import java.io.Serializable;
 import java.util.List;

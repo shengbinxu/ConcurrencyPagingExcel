@@ -1,4 +1,4 @@
-package com.shengbinxu.excel.sdk.service.entity;
+package com.shengbinxu.excel.sdk.entity;
 
 public class ApiResponseType {
     public final static String JSON = "json";

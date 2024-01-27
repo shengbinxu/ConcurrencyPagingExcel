@@ -1,6 +1,6 @@
 package com.shengbinxu.excel.config;
 
-import com.shengbinxu.excel.sdk.service.DownloadService;
+import com.shengbinxu.excel.sdk.DownloadService;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

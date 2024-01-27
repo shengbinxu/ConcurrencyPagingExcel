@@ -1,11 +1,10 @@
 package com.shengbinxu.excel.controller;
 
 import com.shengbinxu.excel.entity.ExcelUser;
-import com.shengbinxu.excel.entity.User;
 import com.shengbinxu.excel.entity.UserExcelHeader;
-import com.shengbinxu.excel.sdk.service.entity.ApiResponseType;
-import com.shengbinxu.excel.sdk.service.DownloadService;
-import com.shengbinxu.excel.sdk.service.entity.PaginationWrapper;
+import com.shengbinxu.excel.sdk.entity.ApiResponseType;
+import com.shengbinxu.excel.sdk.DownloadService;
+import com.shengbinxu.excel.sdk.entity.PaginationWrapper;
 import com.shengbinxu.excel.service.UserService;
 import io.swagger.annotations.ApiParam;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.io.IOException;
 
 @RestController
 public class ExcelController {

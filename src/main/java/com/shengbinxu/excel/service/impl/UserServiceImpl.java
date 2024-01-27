@@ -2,7 +2,7 @@ package com.shengbinxu.excel.service.impl;
 
 import com.shengbinxu.excel.entity.ExcelUser;
 import com.shengbinxu.excel.entity.User;
-import com.shengbinxu.excel.sdk.service.entity.PaginationWrapper;
+import com.shengbinxu.excel.sdk.entity.PaginationWrapper;
 import com.shengbinxu.excel.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.InitializingBean;

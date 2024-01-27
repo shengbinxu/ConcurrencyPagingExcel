@@ -1,8 +1,7 @@
 package com.shengbinxu.excel.service;
 
 import com.shengbinxu.excel.entity.ExcelUser;
-import com.shengbinxu.excel.entity.User;
-import com.shengbinxu.excel.sdk.service.entity.PaginationWrapper;
+import com.shengbinxu.excel.sdk.entity.PaginationWrapper;
 
 public interface UserService {
     /**
