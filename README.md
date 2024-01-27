@@ -13,3 +13,43 @@
 访问 `http://localhost:8080/list/json?page=2` 返回json格式数据
 
 访问`http://localhost:8080/list/excel` 下载excel
+
+
+# 设计说明
+1、service中定义了“获取一页数据”的接口：
+```
+public interface PageDataFetcher {
+    public Object get(Integer page, Integer pageSize);
+}
+```
+2、各业务模块，实现该接口：
+```
+public interface UserService {
+    /**
+     * 模拟从数据库中获取一页用户信息的效果
+     *
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    public PaginationWrapper<ExcelUser> getList(Integer page, Integer pageSize);
+}
+```
+
+```
+downloadService.submitTask(
+        DownloadService.RunModel.MULTI_THREAD,
+        (page2, pageSize2) -> userService.getList(page2, pageSize2),
+        100,
+        null,
+        UserExcelHeader.class,
+        "用户列表",
+        response
+);
+```
+
+3、下载服务，支持单线程和多线程两种模式：
+- 单线程模式。PageDataFetcher.get() 返回的数据格式可以是Collection（业务不需要获取总行数，只需要返回entity List就可以）、或者PaginationWrapper（需要获取总行数）
+
+- 多线程模式。PageDataFetcher.get() 必须返回PaginationWrapper类型，告知DownloadService总共有多少行数据。然后下载服务会创建n个并行的单页下载任务，然后投递给线程池。
+
